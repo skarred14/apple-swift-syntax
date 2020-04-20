@@ -530,8 +530,6 @@ def delete_rpath(rpath, binary):
         cmd = ["install_name_tool", "-delete_rpath", rpath, binary]
         note("removing RPATH from %s: %s" % (binary, " ".join(cmd)))
         subprocess.call(cmd)
-    else:
-        fatal_error("unable to remove RPATHs on this platform")
 
 
 def change_id_rpath(rpath, binary):
@@ -541,8 +539,6 @@ def change_id_rpath(rpath, binary):
         result = subprocess.call(cmd)
         if result != 0:
             fatal_error("command failed with exit status %d" % (result,))
-    else:
-        fatal_error("unable to invoke install_name_tool on this platform")
 
 
 def check_and_sync(file_path, install_path):
