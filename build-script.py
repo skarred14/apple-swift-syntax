@@ -296,8 +296,10 @@ def generate_gyb_files_helper(
 
 
 def get_installed_dylib_name():
-    return "libSwiftSyntax.dylib"
-
+    if platform.system() != "Darwin":
+        return "libSwiftSyntax.so"
+    else:
+        return "libSwiftSyntax.dylib"
 
 def get_swiftpm_invocation(toolchain, action, build_dir, multiroot_data_file, release):
     swift_exec = os.path.join(toolchain, "bin", "swift")
