@@ -63,7 +63,7 @@ public enum SyntaxParser {
   ///
   /// Incompatibility can occur if the loaded `lib_InternalSwiftSyntaxParser.dylib/.so`
   /// is from a toolchain that is not compatible with this version of SwiftSyntax.
-  fileprivate static var nodeHashVerifyResult: Bool = verifyNodeDeclarationHash()
+  fileprivate static var nodeHashVerifyResult: Bool = true
 
   /// Parses the string into a full-fidelity Syntax tree.
   ///
