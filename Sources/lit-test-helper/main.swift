@@ -14,6 +14,10 @@
 import SwiftSyntax
 import Foundation
 
+#if canImport(WinSDK)
+import WinSDK
+#endif
+
 /// Print the given message to stderr
 func printerr(_ message: String, terminator: String = "\n") {
   FileHandle.standardError.write((message + terminator).data(using: .utf8)!)
